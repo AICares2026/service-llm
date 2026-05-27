@@ -1,0 +1,20 @@
+service:
+  name: llm
+image:
+  repository: 952893849914.dkr.ecr.us-east-1.amazonaws.com/aicares-application/llm
+containerPort: 8000
+resources:
+  limits:
+    memory: "50Mi"
+  requests:
+    memory: "16Mi"
+    cpu: "50m"
+env:
+  - name: LLM_PORT
+    value: "8000"
+  - name: OTEL_SERVICE_NAME
+    value: "llm"
+  - name: OTEL_EXPORTER_OTLP_ENDPOINT
+    value: "http://otel-collector:4317"
+nodeSelector:
+  eks.amazonaws.com/nodegroup: graviton-workers
