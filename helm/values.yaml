@@ -1,5 +1,5 @@
 service:
-  name: llm
+  name: service-llm
 image:
   repository: 952893849914.dkr.ecr.us-east-1.amazonaws.com/aicares-application/llm
 containerPort: 8000
